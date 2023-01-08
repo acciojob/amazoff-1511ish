@@ -7,29 +7,30 @@ import java.util.List;
 
 @Service
 public class OrderService {
+
     @Autowired
     OrderRepository orderRepository;
-    public void addOrder(Order order){
-        orderRepository.addOrder(order);
+
+    public void addOrderService(Order order){
+        orderRepository.addOrderToDb(order);
     }
 
-    public void addPartner(String partnerId){
-        orderRepository.addPartner(partnerId);
+    public void addPartnerService(String partnerId){
+        orderRepository.addPartnerToDb(partnerId);
     }
 
-    public void addOrderPartnerPair(String orderId,String partnerId){
-        orderRepository.addOrderPartnerPair(orderId,partnerId);
+    public void addOrderPartnerPairService(String orderId,String partnerId){
+        orderRepository.addOrderPartnerPairToDb(orderId,partnerId);
     }
 
     public Order getOrderById(String orderId){
         return orderRepository.getOrderById(orderId);
     }
-
     public DeliveryPartner getPartnerById(String partnerId){
         return orderRepository.getPartnerById(partnerId);
     }
 
-    public Integer getOrderCountByPartnerId(String partnerId){
+    public int getOrderCountByPartnerId(String partnerId){
         return orderRepository.getOrderCountByPartnerId(partnerId);
     }
 
@@ -60,4 +61,11 @@ public class OrderService {
     public void deleteOrderById(String orderId){
         orderRepository.deleteOrderById(orderId);
     }
+
+
+
+
+
+
+
 }
